@@ -48,7 +48,7 @@ export function DashboardPage({ lang }: { lang: Lang }) {
           />
           <StatCard
             icon="fa-clock"
-            iconBg="linear-gradient(135deg, #5856d6, #4a45c0)"
+            iconBg="linear-gradient(135deg, #32ADE6, #2196c8)"
             label={t('dashAvgTime', lang)}
             value={`${s.avgHours}`}
             sub={t('dashHours', lang)}

@@ -86,7 +86,7 @@ export function ReconciliationPage({ lang }: { lang: Lang }) {
         />
         <StatCard
           icon="fa-percentage"
-          iconBg="linear-gradient(135deg, #5856d6, #4a45c0)"
+          iconBg="linear-gradient(135deg, #32ADE6, #2196c8)"
           label={t('reconRate', lang)}
           value={`${avgRate}%`}
           sub={lang === 'zh' ? '平均' : 'Average'}

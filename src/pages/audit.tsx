@@ -11,7 +11,7 @@ import { DataTable, StatusBadge, EmptyState } from '../components'
 function ModeBadge({ mode, lang }: { mode: AppMode; lang: Lang }) {
   if (mode === 'chain') {
     return (
-      <span class="inline-flex items-center gap-1 px-2 py-0.5 rounded-full text-xs font-medium" style={{ background: 'rgba(88,86,214,0.1)', color: '#5856d6' }}>
+      <span class="inline-flex items-center gap-1 px-2 py-0.5 rounded-full text-xs font-medium" style={{ background: 'rgba(61,143,131,0.12)', color: '#3D8F83' }}>
         <i class="fas fa-link text-[9px]" aria-hidden="true"></i>
         {t('modeChain', lang)}
       </span>

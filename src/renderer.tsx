@@ -77,7 +77,7 @@ export const renderer = jsxRenderer(({
 
         {/* ── Chain 模式顶部条 ── */}
         {isChain && (
-          <div class="fixed top-0 left-0 right-0 z-[110] h-[28px] flex items-center justify-center gap-2 text-xs text-white" style={{ background: 'linear-gradient(90deg, #5856d6, #4a45c0)' }} role="status" aria-label={t('modeChain', lang)}>
+          <div class="fixed top-0 left-0 right-0 z-[110] h-[28px] flex items-center justify-center gap-2 text-xs text-white" style={{ background: 'linear-gradient(90deg, #3D8F83, #49A89A, #5DC4B3)' }} role="status" aria-label={t('modeChain', lang)}>
             <i class="fas fa-link text-[10px]" aria-hidden="true"></i>
             <span>{t('modeChain', lang)}</span>
             <span class="opacity-60">|</span>
@@ -108,7 +108,7 @@ export const renderer = jsxRenderer(({
               </a>
               {/* Mode badge (inline in navbar) */}
               {isChain ? (
-                <span class="hidden sm:inline-flex items-center gap-1 px-2 py-0.5 rounded-full text-[10px] font-semibold" style={{ background: 'rgba(88,86,214,0.12)', color: '#5856d6' }}>
+                <span class="hidden sm:inline-flex items-center gap-1 px-2 py-0.5 rounded-full text-[10px] font-semibold" style={{ background: 'rgba(61,143,131,0.12)', color: '#3D8F83' }}>
                   <i class="fas fa-link text-[8px]" aria-hidden="true"></i>
                   {t('chainBadge', lang)}
                 </span>
@@ -167,7 +167,7 @@ export const renderer = jsxRenderer(({
                       <div class="flex items-center gap-2 mt-1">
                         <span class="text-xs text-apple-secondary">{roleLabel[user.role] || user.role}</span>
                         {isChain ? (
-                          <span class="text-[10px] px-1.5 py-0.5 rounded-full" style={{ background: 'rgba(88,86,214,0.1)', color: '#5856d6' }}>{t('chainBadge', lang)}</span>
+                          <span class="text-[10px] px-1.5 py-0.5 rounded-full" style={{ background: 'rgba(61,143,131,0.12)', color: '#3D8F83' }}>{t('chainBadge', lang)}</span>
                         ) : (
                           <span class="text-[10px] px-1.5 py-0.5 rounded-full" style={{ background: 'rgba(93,196,179,0.1)', color: '#3a9e8f' }}>{t('modeStandalone', lang)}</span>
                         )}
