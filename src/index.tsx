@@ -43,9 +43,12 @@ function lang(c: any): Lang {
   return getLang(c.req.query('lang'))
 }
 
-function setCookies(headers: Headers, session: AuthSession) {
+function setCookies(headers: Headers, session: AuthSession, isSecure = false) {
   const maxAge = 86400 // 24h
-  const opts = 'Path=/; HttpOnly; SameSite=Lax; Max-Age=' + maxAge
+  // 根据请求协议自适应 Secure 标志
+  // wrangler pages dev (HTTP) 不需要 Secure, 生产环境 (HTTPS) 需要
+  const securePart = isSecure ? ' Secure;' : ''
+  const opts = `Path=/; HttpOnly;${securePart} SameSite=Lax; Max-Age=${maxAge}`
   headers.append('Set-Cookie', `sc_session=${encodeSessionCookie(session)}; ${opts}`)
   headers.append('Set-Cookie', `sc_token=${session.token}; ${opts}`)
 }
@@ -53,6 +56,13 @@ function setCookies(headers: Headers, session: AuthSession) {
 function clearCookies(headers: Headers) {
   headers.append('Set-Cookie', 'sc_session=; Path=/; HttpOnly; Max-Age=0')
   headers.append('Set-Cookie', 'sc_token=; Path=/; HttpOnly; Max-Age=0')
+}
+
+/** 检测请求是否通过 HTTPS (包含代理场景) */
+function isSecureRequest(c: any): boolean {
+  const proto = c.req.header('X-Forwarded-Proto') || ''
+  const url = c.req.url || ''
+  return proto === 'https' || url.startsWith('https://')
 }
 
 /** 从 cookie 恢复 session */
@@ -183,7 +193,7 @@ app.use('*', async (c, next) => {
     const cleanUrl = new URL(url.pathname, url.origin)
     if (url.searchParams.get('lang')) cleanUrl.searchParams.set('lang', url.searchParams.get('lang')!)
     const resp = c.redirect(cleanUrl.toString(), 302)
-    setCookies(resp.headers, session)
+    setCookies(resp.headers, session, isSecureRequest(c))
     return resp
   }
 
@@ -251,7 +261,7 @@ app.post('/login', async (c) => {
   })
 
   const resp = c.redirect(l === 'en' ? '/?lang=en' : '/', 302)
-  setCookies(resp.headers, session)
+  setCookies(resp.headers, session, isSecureRequest(c))
   return resp
 })
 
