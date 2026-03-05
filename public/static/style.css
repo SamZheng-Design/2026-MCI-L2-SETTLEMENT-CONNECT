@@ -251,7 +251,8 @@ button:focus-visible, a:focus-visible, input:focus-visible, select:focus-visible
 
 
 /* ══════════════════════════════════════════════════
-   V33 Login Page — 暗色 Teal 赛博风格
+   V33 Login Page — 暗色 Teal 背景 + 白色卡片
+   对标合约通 Contract Connect v33 登录页
    ══════════════════════════════════════════════════ */
 
 .login-page {
@@ -262,6 +263,7 @@ button:focus-visible, a:focus-visible, input:focus-visible, select:focus-visible
   position: relative;
   overflow: hidden;
   background: linear-gradient(135deg, #0a2e2a 0%, #0f3d36 30%, #164e47 60%, #0a2e2a 100%);
+  font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'SF Pro Text', 'Helvetica Neue', 'PingFang SC', 'Noto Sans SC', sans-serif;
 }
 
 /* 暗色背景层 */
@@ -272,57 +274,57 @@ button:focus-visible, a:focus-visible, input:focus-visible, select:focus-visible
   pointer-events: none;
 }
 
-/* 网格线 */
+/* 网格线 — 微妙的 Teal 网格 */
 .login-grid {
   position: absolute;
   inset: 0;
   background-image:
-    linear-gradient(rgba(93,196,179,0.06) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(93,196,179,0.06) 1px, transparent 1px);
+    linear-gradient(rgba(93,196,179,0.04) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(93,196,179,0.04) 1px, transparent 1px);
   background-size: 60px 60px;
-  opacity: 0.5;
+  opacity: 0.6;
 }
 
-/* 光晕球 */
+/* 光晕球 — 柔和的 Teal 径向渐变 */
 .login-orb {
   position: absolute;
   border-radius: 50%;
-  filter: blur(80px);
-  animation: orbFloat 8s ease-in-out infinite;
+  filter: blur(100px);
+  animation: orbFloat 10s ease-in-out infinite;
 }
 .login-orb-1 {
-  top: -15%;
-  right: -10%;
+  top: -10%;
+  right: -8%;
   width: 500px;
   height: 500px;
-  background: radial-gradient(circle, rgba(93,196,179,0.25) 0%, rgba(73,168,154,0.10) 50%, transparent 70%);
-  animation-duration: 10s;
+  background: radial-gradient(circle, rgba(93,196,179,0.18) 0%, rgba(73,168,154,0.06) 50%, transparent 70%);
+  animation-duration: 12s;
 }
 .login-orb-2 {
-  bottom: -20%;
-  left: -15%;
-  width: 600px;
-  height: 600px;
-  background: radial-gradient(circle, rgba(73,168,154,0.20) 0%, rgba(61,143,131,0.08) 50%, transparent 70%);
-  animation-duration: 14s;
-  animation-delay: -4s;
+  bottom: -15%;
+  left: -12%;
+  width: 550px;
+  height: 550px;
+  background: radial-gradient(circle, rgba(73,168,154,0.15) 0%, rgba(61,143,131,0.05) 50%, transparent 70%);
+  animation-duration: 16s;
+  animation-delay: -5s;
 }
 .login-orb-3 {
-  top: 40%;
-  left: 50%;
-  width: 300px;
-  height: 300px;
-  background: radial-gradient(circle, rgba(125,212,199,0.15) 0%, transparent 60%);
-  animation-duration: 12s;
-  animation-delay: -2s;
+  top: 35%;
+  left: 55%;
+  width: 250px;
+  height: 250px;
+  background: radial-gradient(circle, rgba(125,212,199,0.12) 0%, transparent 60%);
+  animation-duration: 14s;
+  animation-delay: -3s;
 }
 @keyframes orbFloat {
   0%, 100% { transform: translate(0, 0) scale(1); }
-  33% { transform: translate(20px, -30px) scale(1.05); }
-  66% { transform: translate(-15px, 20px) scale(0.95); }
+  33% { transform: translate(15px, -25px) scale(1.03); }
+  66% { transform: translate(-10px, 15px) scale(0.97); }
 }
 
-/* Logo 脉冲 */
+/* Logo 脉冲光晕 */
 .login-logo-pulse {
   display: inline-flex;
   position: relative;
@@ -330,106 +332,120 @@ button:focus-visible, a:focus-visible, input:focus-visible, select:focus-visible
 .login-logo-pulse::before {
   content: '';
   position: absolute;
-  inset: -8px;
+  inset: -12px;
   border-radius: 50%;
-  background: radial-gradient(circle, rgba(93,196,179,0.4) 0%, transparent 70%);
-  animation: logoPulse 3s ease-in-out infinite;
+  background: radial-gradient(circle, rgba(93,196,179,0.35) 0%, transparent 70%);
+  animation: logoPulse 4s ease-in-out infinite;
 }
 @keyframes logoPulse {
-  0%, 100% { opacity: 0.4; transform: scale(1); }
-  50% { opacity: 0.8; transform: scale(1.15); }
+  0%, 100% { opacity: 0.3; transform: scale(1); }
+  50% { opacity: 0.7; transform: scale(1.12); }
 }
 
-/* 登录卡片 — 暗色毛玻璃 */
-.login-card {
-  background: rgba(10,46,42,0.65);
-  backdrop-filter: blur(24px) saturate(150%);
-  -webkit-backdrop-filter: blur(24px) saturate(150%);
-  border: 1px solid rgba(93,196,179,0.12);
-  border-radius: var(--radius-2xl);
-  padding: 32px;
-  box-shadow: 0 8px 32px rgba(0,0,0,0.3), inset 0 1px 0 rgba(93,196,179,0.08);
+/* ── 白色登录卡片 (对标合约通) ── */
+.login-white-card {
+  background: white;
+  border-radius: 20px;
+  padding: 32px 28px;
+  box-shadow:
+    0 8px 40px rgba(0,0,0,0.15),
+    0 2px 8px rgba(0,0,0,0.06);
+  position: relative;
+  overflow: hidden;
+}
+.login-white-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: linear-gradient(90deg, #5DC4B3, #49A89A, #7DD4C7);
+  border-radius: 20px 20px 0 0;
 }
 
-/* 登录输入框 */
-.login-input {
+/* ── 表单输入框 (白色卡片内) ── */
+.login-form-input {
   width: 100%;
-  height: 44px;
+  height: 48px;
   padding: 0 16px;
-  border-radius: var(--radius-md);
-  border: 1px solid rgba(93,196,179,0.15);
-  background: rgba(93,196,179,0.06);
-  color: white;
+  border-radius: 12px;
+  border: 1.5px solid #e5e7eb;
+  background: #fafafa;
+  color: #1d1d1f;
   font-size: 14px;
   outline: none;
   transition: all 280ms;
   font-family: inherit;
 }
-.login-input::placeholder { color: rgba(255,255,255,0.25); }
-.login-input:focus {
-  border-color: rgba(93,196,179,0.5);
-  box-shadow: 0 0 0 3px rgba(93,196,179,0.1), 0 0 20px rgba(93,196,179,0.08);
-  background: rgba(93,196,179,0.08);
+.login-form-input::placeholder {
+  color: #9ca3af;
+}
+.login-form-input:focus {
+  border-color: #5DC4B3;
+  background: white;
+  box-shadow: 0 0 0 3px rgba(93,196,179,0.12);
 }
 
-/* 登录主按钮 */
-.login-btn-primary {
+/* ── 登录提交按钮 (Teal渐变, 大圆角) ── */
+.login-btn-submit {
   width: 100%;
-  height: 44px;
+  height: 48px;
   border: none;
-  border-radius: var(--radius-md);
-  background: var(--gradient-primary);
+  border-radius: 12px;
+  background: linear-gradient(135deg, #5DC4B3 0%, #49A89A 100%);
   color: white;
   font-size: 15px;
   font-weight: 600;
   cursor: pointer;
   transition: all 280ms;
   font-family: inherit;
-  position: relative;
-  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 20px;
 }
-.login-btn-primary:hover {
-  box-shadow: 0 4px 20px rgba(93,196,179,0.35), 0 0 40px rgba(93,196,179,0.15);
+.login-btn-submit:hover {
+  box-shadow: 0 4px 16px rgba(93,196,179,0.35);
   transform: translateY(-1px);
 }
-.login-btn-primary:active {
+.login-btn-submit:active {
   transform: scale(0.98);
 }
 
-/* Demo 账号按钮 */
-.login-demo-btn {
+/* ── Demo 账号卡片 (白色卡片内) ── */
+.login-demo-card {
   width: 100%;
   display: flex;
   align-items: center;
   gap: 12px;
   padding: 10px 12px;
-  border-radius: var(--radius-md);
-  border: 1px solid rgba(93,196,179,0.1);
-  background: rgba(93,196,179,0.04);
+  border-radius: 12px;
+  border: 1.5px solid #f0f0f0;
+  background: #fafafa;
   cursor: pointer;
   transition: all 280ms;
-  text-align: left;
   font-family: inherit;
 }
-.login-demo-btn:hover {
-  border-color: rgba(93,196,179,0.3);
-  background: rgba(93,196,179,0.08);
+.login-demo-card:hover {
+  border-color: #5DC4B3;
+  background: rgba(93,196,179,0.04);
   transform: translateY(-1px);
-  box-shadow: 0 4px 16px rgba(0,0,0,0.2);
+  box-shadow: 0 4px 12px rgba(93,196,179,0.12);
 }
 
-/* 粒子 */
+/* ── 粒子动画 ── */
 .login-particles { position: fixed; inset: 0; pointer-events: none; overflow: hidden; }
 .login-particle {
   position: absolute;
-  width: 3px;
-  height: 3px;
+  width: 2px;
+  height: 2px;
   border-radius: 50%;
-  background: rgba(93,196,179,0.4);
+  background: rgba(93,196,179,0.35);
   animation: particleFloat linear infinite;
 }
-.login-particle:nth-child(2n) { background: rgba(73,168,154,0.3); width: 2px; height: 2px; }
-.login-particle:nth-child(3n) { background: rgba(125,212,199,0.35); width: 4px; height: 4px; }
+.login-particle:nth-child(2n) { background: rgba(73,168,154,0.25); width: 3px; height: 3px; }
+.login-particle:nth-child(3n) { background: rgba(125,212,199,0.3); width: 2px; height: 2px; }
 @keyframes particleFloat {
   0% { transform: translateY(100vh) rotate(0deg); opacity: 0; }
   10% { opacity: 1; }
@@ -439,7 +455,7 @@ button:focus-visible, a:focus-visible, input:focus-visible, select:focus-visible
 
 /* Login responsive */
 @media (max-width: 480px) {
-  .login-card { padding: 24px 20px; border-radius: var(--radius-lg); }
+  .login-white-card { padding: 24px 20px; border-radius: 16px; }
   .login-orb-1 { width: 300px; height: 300px; }
-  .login-orb-2 { width: 400px; height: 400px; }
+  .login-orb-2 { width: 350px; height: 350px; }
 }
